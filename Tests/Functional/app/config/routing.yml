@@ -1,0 +1,3 @@
+ir_news_article:
+    resource: "@IRNewsBundle/Resources/config/routing/article.xml" 
+    prefix: /articles    

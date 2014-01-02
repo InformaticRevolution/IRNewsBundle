@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services 
+                               http://symfony.com/schema/dic/services/services-1.0.xsd">
+  
+    <parameters>
+        <parameter key="ir_news.manager.article.class">IR\Bundle\NewsBundle\Doctrine\ArticleManager</parameter>
+    </parameters>
+
+    <services>
+        <service id="ir_news.entity_manager" alias="doctrine.orm.default_entity_manager" public="false" />
+        
+        <service id="ir_news.manager.article.default" class="%ir_news.manager.article.class%" public="false">
+            <argument type="service" id="ir_news.entity_manager" />
+            <argument>%ir_news.model.article.class%</argument>
+        </service>                    
+    </services>  
+
+</container>

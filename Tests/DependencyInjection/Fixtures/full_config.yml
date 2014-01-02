@@ -1,0 +1,10 @@
+db_driver: orm
+article_class: Acme\NewsBundle\Entity\Article
+article_manager: acme_news.manager.article
+article:
+    form:
+        type: acme_news_article
+        name: acme_news_article_form
+        validation_groups: [acme_news]
+template:
+    engine: php

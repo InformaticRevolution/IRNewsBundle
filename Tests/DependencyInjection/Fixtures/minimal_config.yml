@@ -1,0 +1,2 @@
+db_driver: orm
+article_class: Acme\NewsBundle\Entity\Article

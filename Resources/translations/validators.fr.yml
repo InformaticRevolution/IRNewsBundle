@@ -1,0 +1,10 @@
+ir_news:
+    article:
+        title:
+            not_blank: Veuillez entrer un titre
+            min_length: Le titre doit comporter au moins {{ limit }} caractères
+            max_length: Le titre ne doit pas comporter plus de {{ limit }} caractères 
+            
+        content:
+            not_blank: Veuillez rédiger un article
+            min_length: L'article doit comporter au moins {{ limit }} caractères

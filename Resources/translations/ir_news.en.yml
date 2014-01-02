@@ -1,0 +1,34 @@
+# Article
+article: 
+    title: Title
+    created_at: Creation time
+    updated_at: Last update time
+    
+    list:
+        title: Articles
+        no_results: You haven't added any articles yet.
+    show:
+        title: Article details
+        general_info: General information        
+    new:
+        title: Add an article
+        save: Save
+        cancel: Cancel
+    edit:
+        title: Edit an article
+        save: Save
+        cancel: Cancel      
+    action: 
+        new: Add an article 
+        edit: Edit
+        delete: Delete            
+    flash:
+        created: The article has been successfully created
+        updated: The article has been successfully updated
+        deleted: The article has been successfully deleted
+
+# Form field labels
+form:
+    article:
+        title : "Title :"
+        content: "Content :"

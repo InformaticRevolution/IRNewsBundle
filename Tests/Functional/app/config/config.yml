@@ -1,0 +1,40 @@
+# Framework Configuration
+framework:
+    secret: test
+    test: ~
+    router:
+        resource: "%kernel.root_dir%/config/routing.yml"
+    form:            ~
+    csrf_protection: ~
+    validation:      { enable_annotations: true }    
+    templating:
+        engines: ['twig', 'php']   
+    session:
+        storage_id: session.storage.mock_file
+     
+# Twig Configuration        
+twig:
+    debug:            %kernel.debug%
+    strict_variables: %kernel.debug%        
+           
+# Doctrine Configuration        
+doctrine:
+    dbal:
+        driver: pdo_sqlite
+        path: %kernel.cache_dir%/database.db
+        
+    orm:
+        auto_generate_proxy_classes: %kernel.debug%
+        auto_mapping: true 
+
+# StofDoctrineExtensions Configuration            
+stof_doctrine_extensions:
+    orm:
+        default:
+            sluggable: true
+            timestampable: true
+           
+# IRNews Configuration            
+ir_news:
+    db_driver: orm 
+    article_class: IR\Bundle\NewsBundle\Tests\Functional\Bundle\TestBundle\Entity\Article

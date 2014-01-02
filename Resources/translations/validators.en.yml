@@ -1,0 +1,10 @@
+ir_news:  
+    article:
+        title:
+            not_blank: Please enter a title
+            min_length: The title must be at least {{ limit }} characters long
+            max_length: The title cannot be longer than {{ limit }} characters     
+            
+        content:
+            not_blank: Please write an article
+            min_length: The article must be at least {{ limit }} characters long            

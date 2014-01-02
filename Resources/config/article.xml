@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services 
+                               http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="ir_news.form.type.article.class">IR\Bundle\NewsBundle\Form\Type\ArticleType</parameter>
+    </parameters>
+
+    <services>
+        <service id="ir_news.form.article" factory-service="form.factory" factory-method="createNamed" class="Symfony\Component\Form\Form">
+            <argument>%ir_news.form.name.article%</argument>
+            <argument>%ir_news.form.type.article%</argument>
+            <argument>null</argument>
+            <argument type="collection">
+                <argument key="validation_groups">%ir_news.form.validation_groups.article%</argument>
+            </argument>              
+        </service>         
+
+        <service id="ir_news.form.type.article" class="%ir_news.form.type.article.class%">
+            <argument>%ir_news.model.article.class%</argument>
+            <tag name="form.type" alias="ir_news_article" />
+        </service>      
+    </services>
+
+</container>
