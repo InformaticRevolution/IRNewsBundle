@@ -53,11 +53,14 @@ interface ArticleManagerInterface
     /**
      * Finds articles by given criteria.
      * 
-     * @param array $criteria
+     * @param array        $criteria
+     * @param array|null   $orderBy
+     * @param integer|null $limite
+     * @param integer|null $offset
      * 
      * @return array
      */
-    public function findArticlesBy(array $criteria);
+    public function findArticlesBy(array $criteria, array $orderBy = null, $limite = null, $offset = null);
 
     /**
      * Returns the article's fully qualified class name.

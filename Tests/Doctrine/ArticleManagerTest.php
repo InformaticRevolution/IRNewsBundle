@@ -108,13 +108,21 @@ class ArticleManagerTest extends \PHPUnit_Framework_TestCase
     public function testFindArticlesBy()
     {
         $criteria = array("foo" => "bar");
+        $orderBy = array("foo" => "asc");
+        $limit = 3;
+        $offset = 0;
         
         $this->repository->expects($this->once())
             ->method('findBy')
-            ->with($this->equalTo($criteria))
+            ->with(
+                $this->equalTo($criteria), 
+                $this->equalTo($orderBy), 
+                $this->equalTo($limit), 
+                $this->equalTo($offset)
+            )
             ->will($this->returnValue(array()));
 
-        $this->articleManager->findArticlesBy($criteria);
+        $this->articleManager->findArticlesBy($criteria, $orderBy, $limit, $offset);
     }      
     
     public function testGetClass()

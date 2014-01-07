@@ -90,9 +90,9 @@ class ArticleManager extends AbstractArticleManager
     /**
      * {@inheritdoc}
      */    
-    public function findArticlesBy(array $criteria) 
+    public function findArticlesBy(array $criteria, array $orderBy = null, $limite = null, $offset = null) 
     {
-        return $this->repository->findBy($criteria);
+        return $this->repository->findBy($criteria, $orderBy, $limite, $offset);
     }
 
     /**
