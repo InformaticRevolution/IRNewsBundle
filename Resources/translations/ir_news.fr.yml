@@ -1,31 +1,33 @@
-# Article
-article:   
-    title: Titre
-    created_at: Date de création
-    updated_at: Date de mise à jour
-  
-    list:
-        title: Articles
-        no_results: Aucun article pour le moment. 
-    show:
-        title: Article
-        general_info: Informations générales        
-    new:
-        title: Ajouter un article
-        save: Enregistrer
-        cancel: Annuler
-    edit:
-        title: Modifier un article
-        save: Enregistrer
-        cancel: Annuler 
-    action: 
-        new: Ajouter un article 
-        edit: Modifier
-        delete: Supprimer
-    flash:
-        created: L'article a été créé
-        updated: L'article a été mis à jour
-        deleted: L'article a été supprimé        
+# Administration
+admin:
+    # Article
+    article:   
+        title: Titre
+        created_at: Date de création
+        updated_at: Date de mise à jour
+
+        list:
+            title: Articles
+            no_results: Aucun article pour le moment. 
+        show:
+            title: Article
+            general_info: Informations générales        
+        new:
+            title: Ajouter un article
+            save: Enregistrer
+            cancel: Annuler
+        edit:
+            title: Modifier un article
+            save: Enregistrer
+            cancel: Annuler 
+        action: 
+            new: Ajouter un article 
+            edit: Modifier
+            delete: Supprimer
+        flash:
+            created: L'article a été créé
+            updated: L'article a été mis à jour
+            deleted: L'article a été supprimé        
         
 # Form field labels
 form:

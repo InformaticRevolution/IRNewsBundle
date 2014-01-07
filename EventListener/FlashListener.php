@@ -25,9 +25,9 @@ use IR\Bundle\NewsBundle\IRNewsEvents;
 class FlashListener implements EventSubscriberInterface
 {
     private static $successMessages = array(
-        IRNewsEvents::ARTICLE_CREATE_COMPLETED => 'article.flash.created',
-        IRNewsEvents::ARTICLE_EDIT_COMPLETED => 'article.flash.updated',
-        IRNewsEvents::ARTICLE_DELETE_COMPLETED => 'article.flash.deleted',        
+        IRNewsEvents::ARTICLE_CREATE_COMPLETED => 'admin.article.flash.created',
+        IRNewsEvents::ARTICLE_EDIT_COMPLETED => 'admin.article.flash.updated',
+        IRNewsEvents::ARTICLE_DELETE_COMPLETED => 'admin.article.flash.deleted',        
     );
 
     /**

@@ -147,7 +147,7 @@ Add the following configuration to your `routing.yml` file:
 ``` yaml
 # app/config/routing.yml
 ir_news_article:
-    resource: "@IRNewsBundle/Resources/config/routing/article.xml"
+    resource: "@IRNewsBundle/Resources/config/routing/admin/article.xml"
     prefix: /admin/articles
 ```
 

@@ -1,0 +1,12 @@
+{% trans_default_domain 'ir_news' %}
+
+<div class="page-header">
+    <h1>{{ 'admin.article.edit.title'|trans }}</h1>
+</div>
+
+<form action="{{ path('ir_news_admin_article_edit', {'id': article.id}) }}" {{ form_enctype(form) }} method="POST" class="form-horizontal" novalidate>
+    {% include 'IRNewsBundle:Admin/Article:form.html.twig' %}
+    <div>
+        <button type="submit" class="btn btn-primary">{{ 'admin.article.edit.save'|trans }}</button>
+    </div>               
+</form>

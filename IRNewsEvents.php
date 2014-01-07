@@ -23,19 +23,19 @@ final class IRNewsEvents
      *
      * The event listener method receives a IR\Bundle\NewsBundle\Event\ArticleEvent instance.
      */
-    const ARTICLE_CREATE_COMPLETED = 'ir_news.article.create.completed';
+    const ARTICLE_CREATE_COMPLETED = 'ir_news.admin.article.create.completed';
     
     /**
      * The ARTICLE_EDIT_COMPLETED event occurs after saving the article in the article edit process.
      *
      * The event listener method receives a IR\Bundle\NewsBundle\Event\ArticleEvent instance.
      */
-    const ARTICLE_EDIT_COMPLETED = 'ir_news.article.edit.completed';
+    const ARTICLE_EDIT_COMPLETED = 'ir_news.admin.article.edit.completed';
     
     /**
      * The ARTICLE_DELETE_COMPLETED event occurs after deleting the article.
      *
      * The event listener method receives a IR\Bundle\NewsBundle\Event\ArticleEvent instance.
      */
-    const ARTICLE_DELETE_COMPLETED = 'ir_news.article.delete.completed'; 
+    const ARTICLE_DELETE_COMPLETED = 'ir_news.admin.article.delete.completed'; 
 }

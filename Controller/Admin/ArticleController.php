@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace IR\Bundle\NewsBundle\Controller;
+namespace IR\Bundle\NewsBundle\Controller\Admin;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -21,7 +21,7 @@ use IR\Bundle\NewsBundle\Event\ArticleEvent;
 use IR\Bundle\NewsBundle\Model\ArticleInterface;
 
 /**
- * Controller managing the articles.
+ * Admin controller managing the articles.
  *
  * @author Julien Kirsch <informatic.revolution@gmail.com>
  */
@@ -34,7 +34,7 @@ class ArticleController extends ContainerAware
     {
         $articles = $this->container->get('ir_news.manager.article')->findArticlesBy(array(), array('createdAt' => 'DESC'));
 
-        return $this->container->get('templating')->renderResponse('IRNewsBundle:Article:list.html.'.$this->getEngine(), array(
+        return $this->container->get('templating')->renderResponse('IRNewsBundle:Admin/Article:list.html.'.$this->getEngine(), array(
             'articles' => $articles,
         ));
     }     
@@ -46,7 +46,7 @@ class ArticleController extends ContainerAware
     {
         $article = $this->findArticleById($id);
 
-        return $this->container->get('templating')->renderResponse('IRNewsBundle:Article:show.html.'.$this->getEngine(), array(
+        return $this->container->get('templating')->renderResponse('IRNewsBundle:Admin/Article:show.html.'.$this->getEngine(), array(
             'article' => $article
         ));
     }       
@@ -71,10 +71,10 @@ class ArticleController extends ContainerAware
             $dispatcher = $this->container->get('event_dispatcher');                      
             $dispatcher->dispatch(IRNewsEvents::ARTICLE_CREATE_COMPLETED, new ArticleEvent($article));
                 
-            return new RedirectResponse($this->container->get('router')->generate('ir_news_article_show', array('id' => $article->getId())));                      
+            return new RedirectResponse($this->container->get('router')->generate('ir_news_admin_article_show', array('id' => $article->getId())));                      
         }
         
-        return $this->container->get('templating')->renderResponse('IRNewsBundle:Article:new.html.'.$this->getEngine(), array(
+        return $this->container->get('templating')->renderResponse('IRNewsBundle:Admin/Article:new.html.'.$this->getEngine(), array(
             'form' => $form->createView(),
         ));          
     }    
@@ -97,10 +97,10 @@ class ArticleController extends ContainerAware
             $dispatcher = $this->container->get('event_dispatcher');               
             $dispatcher->dispatch(IRNewsEvents::ARTICLE_EDIT_COMPLETED, new ArticleEvent($article));
                 
-            return new RedirectResponse($this->container->get('router')->generate('ir_news_article_show', array('id' => $article->getId())));                     
+            return new RedirectResponse($this->container->get('router')->generate('ir_news_admin_article_show', array('id' => $article->getId())));                     
         }        
         
-        return $this->container->get('templating')->renderResponse('IRNewsBundle:Article:edit.html.'.$this->getEngine(), array(
+        return $this->container->get('templating')->renderResponse('IRNewsBundle:Admin/Article:edit.html.'.$this->getEngine(), array(
             'article' => $article,
             'form' => $form->createView(),
         ));          
@@ -118,7 +118,7 @@ class ArticleController extends ContainerAware
         $dispatcher = $this->container->get('event_dispatcher');          
         $dispatcher->dispatch(IRNewsEvents::ARTICLE_DELETE_COMPLETED, new ArticleEvent($article));
         
-        return new RedirectResponse($this->container->get('router')->generate('ir_news_article_list'));   
+        return new RedirectResponse($this->container->get('router')->generate('ir_news_admin_article_list'));   
     }     
     
     /**

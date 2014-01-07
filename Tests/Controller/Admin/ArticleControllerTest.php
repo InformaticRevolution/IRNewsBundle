@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace IR\Bundle\NewsBundle\Tests\Controller;
+namespace IR\Bundle\NewsBundle\Tests\Controller\Admin;
 
 use IR\Bundle\NewsBundle\Tests\Functional\WebTestCase;
 
@@ -32,7 +32,7 @@ class ArticleControllerTest extends WebTestCase
     
     public function testListAction()
     {
-        $crawler = $this->client->request('GET', '/articles/');
+        $crawler = $this->client->request('GET', '/admin/articles/');
 
         $this->assertResponseStatusCode(200);
         $this->assertCount(3, $crawler->filter('table tbody tr'));
@@ -40,14 +40,14 @@ class ArticleControllerTest extends WebTestCase
     
     public function testShowAction()
     {
-        $this->client->request('GET', '/articles/1');
+        $this->client->request('GET', '/admin/articles/1');
         
         $this->assertResponseStatusCode(200);
     }      
     
     public function testNewActionGetMethod()
     {
-        $crawler = $this->client->request('GET', '/articles/new');
+        $crawler = $this->client->request('GET', '/admin/articles/new');
         
         $this->assertResponseStatusCode(200);
         $this->assertCount(1, $crawler->filter('form'));
@@ -55,7 +55,7 @@ class ArticleControllerTest extends WebTestCase
     
     public function testNewActionPostMethod()
     {        
-        $this->client->request('POST', '/articles/new', array(
+        $this->client->request('POST', '/admin/articles/new', array(
             'ir_news_article_form' => array (
                 'title' => 'Article 1',
                 'content' => 'Some content...',
@@ -68,12 +68,12 @@ class ArticleControllerTest extends WebTestCase
         $this->client->followRedirect();
         
         $this->assertResponseStatusCode(200);
-        $this->assertCurrentUri('/articles/4');
+        $this->assertCurrentUri('/admin/articles/4');
     }     
     
     public function testEditActionGetMethod()
     {   
-        $crawler = $this->client->request('GET', '/articles/1/edit');
+        $crawler = $this->client->request('GET', '/admin/articles/1/edit');
         
         $this->assertResponseStatusCode(200);
         $this->assertCount(1, $crawler->filter('form'));        
@@ -81,7 +81,7 @@ class ArticleControllerTest extends WebTestCase
     
     public function testEditActionPostMethod()
     {        
-        $this->client->request('POST', '/articles/1/edit', array(
+        $this->client->request('POST', '/admin/articles/1/edit', array(
             'ir_news_article_form' => array (
                 'title' => 'Article 1',       
                 'content' => 'Some content...',
@@ -94,31 +94,31 @@ class ArticleControllerTest extends WebTestCase
         $this->client->followRedirect();
         
         $this->assertResponseStatusCode(200);
-        $this->assertCurrentUri('/articles/1');
+        $this->assertCurrentUri('/admin/articles/1');
     }     
     
     public function testDeleteAction()
     {
-        $this->client->request('GET', '/articles/1/delete');
+        $this->client->request('GET', '/admin/articles/1/delete');
         
         $this->assertResponseStatusCode(302);
         
         $crawler = $this->client->followRedirect();
         
         $this->assertResponseStatusCode(200);
-        $this->assertCurrentUri('/articles/');
+        $this->assertCurrentUri('/admin/articles/');
         $this->assertCount(2, $crawler->filter('table tbody tr'));
     }      
     
     public function testNotFoundHttpWhenArticleNotExist()
     {
-        $this->client->request('GET', '/articles/4');
+        $this->client->request('GET', '/admin/articles/4');
         $this->assertResponseStatusCode(404);        
         
-        $this->client->request('GET', '/articles/4/edit');
+        $this->client->request('GET', '/admin/articles/4/edit');
         $this->assertResponseStatusCode(404);
         
-        $this->client->request('GET', '/articles/4/delete');
+        $this->client->request('GET', '/admin/articles/4/delete');
         $this->assertResponseStatusCode(404);        
     }       
 }
