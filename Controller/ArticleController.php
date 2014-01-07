@@ -32,7 +32,7 @@ class ArticleController extends ContainerAware
      */
     public function listAction()
     {
-        $articles = $this->container->get('ir_news.manager.article')->findArticlesBy(array());
+        $articles = $this->container->get('ir_news.manager.article')->findArticlesBy(array(), array('createdAt' => 'DESC'));
 
         return $this->container->get('templating')->renderResponse('IRNewsBundle:Article:list.html.'.$this->getEngine(), array(
             'articles' => $articles,
